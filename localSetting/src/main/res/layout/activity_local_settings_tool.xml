@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<!--        <import type="com.ess.localsetting.Bean" />-->
+        <!--        <import type="com.ess.localsetting.Bean" />-->
         <variable
             name="listener"
             type="com.ess.localsetting.ILocalSettingToolListener" />
+
         <variable
             name="backListener"
             type="com.ess.localsetting.IBackListener" />
@@ -19,59 +20,117 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.ess.localsetting.LocalSettingsToolActivity"
-        android:background="@mipmap/local_setting_act_bg">
+        android:background="@mipmap/local_setting_act_bg"
+        tools:context="com.ess.localsetting.LocalSettingsToolActivity">
+
         <include
             android:id="@+id/title"
+            layout="@layout/activity_title"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            bind:listener="@{backListener}"
-            layout="@layout/activity_title"/>
+            bind:listener="@{backListener}" />
 
         <LinearLayout
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            android:paddingTop="@dimen/qb_px_22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingTop="@dimen/qb_px_22"
+            app:layout_constraintTop_toBottomOf="@+id/title"
             tools:ignore="MissingConstraints">
 
-            <ImageView
-                android:id="@+id/firstDownload"
-                android:layout_width="@dimen/qb_px_40"
-                android:layout_height="@dimen/qb_px_40"
-                android:layout_weight="1"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="@{()->listener.onclickFirstDownload()}"
-                android:src="@mipmap/local_setting_tool_firstdownload"
-                tools:ignore="OnClick" />
-
-            <ImageView
-                android:id="@+id/sysParSetting"
-                android:layout_width="@dimen/qb_px_40"
-                android:layout_height="@dimen/qb_px_40"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/firstDownload"
+                    android:layout_width="@dimen/qb_px_40"
+                    android:layout_height="@dimen/qb_px_40"
+                    android:src="@mipmap/local_setting_tool_firstdownload"
+                    tools:ignore="OnClick" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first_install"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="@{()->listener.onclickSysParSetting()}"
-                android:src="@mipmap/local_setting_tool_sysparsetting"
-                tools:ignore="OnClick" />
-
-            <ImageView
-                android:id="@+id/deviceSetting"
-                android:layout_width="@dimen/qb_px_40"
-                android:layout_height="@dimen/qb_px_40"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/sysParSetting"
+                    android:layout_width="@dimen/qb_px_40"
+                    android:layout_height="@dimen/qb_px_40"
+                    android:src="@mipmap/local_setting_tool_sysparsetting"
+                    tools:ignore="OnClick" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sys_par_setting"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="@{()->listener.onclickDeviceSetting()}"
-                android:src="@mipmap/local_setting_tool_devicesetting"
-                tools:ignore="OnClick" />
-
-            <ImageView
-                android:id="@+id/commonlySetting"
-                android:layout_width="@dimen/qb_px_40"
-                android:layout_height="@dimen/qb_px_40"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/deviceSetting"
+                    android:layout_width="@dimen/qb_px_40"
+                    android:layout_height="@dimen/qb_px_40"
+                    android:src="@mipmap/local_setting_tool_devicesetting"
+                    tools:ignore="OnClick" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setting"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="@{()->listener.onclickCommonlySetting()}"
-                android:src="@mipmap/local_setting_tool_commonlysetting"
-                tools:ignore="OnClick" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/commonlySetting"
+                    android:layout_width="@dimen/qb_px_40"
+                    android:layout_height="@dimen/qb_px_40"
+                    android:src="@mipmap/local_setting_tool_commonlysetting"
+                    tools:ignore="OnClick" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commonly_setting"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

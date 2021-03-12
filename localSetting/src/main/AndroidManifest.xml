@@ -3,7 +3,8 @@
     package="com.example.localseting">
 
     <application>
-        <activity android:name="com.ess.localsetting.LocalSettingsToolActivity"></activity>
+        <activity android:name="com.ess.localsetting.DeviceSettingsActivity"></activity>
+        <activity android:name="com.ess.localsetting.LocalSettingsToolActivity" />
     </application>
 
 </manifest>

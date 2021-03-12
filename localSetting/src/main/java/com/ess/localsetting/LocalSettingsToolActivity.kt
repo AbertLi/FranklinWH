@@ -1,8 +1,6 @@
 package com.ess.localsetting
 
-import android.app.Activity
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.ess.localsetting.utils.LogUtil
@@ -11,61 +9,46 @@ import com.ess.localsetting.utils.StatusBarUtil
 import com.example.localseting.R
 import com.example.localseting.databinding.ActivityLocalSettingsToolBinding
 
-class LocalSettingsToolActivity : AppCompatActivity() {
+class LocalSettingsToolActivity : BaseActivity(), ILocalSettingToolListener {
     companion object {
         private var TAG = "LocalSettingsToolActivity"
-        lateinit var context: Activity
     }
 
     private var activityLocalSettingsToolBinding: ActivityLocalSettingsToolBinding? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView() {
         com.ess.localsetting.utils.statues.StatusBarUtil.setStatusBarColor(
             this,
-            ContextCompat.getColor(this, R.color.title_colors)
+            ContextCompat.getColor(this, R.color.title_bg_colors)
         )
-        context = this
         activityLocalSettingsToolBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_local_settings_tool)
-        var listener = LocalSettingToolListener()
-        activityLocalSettingsToolBinding?.listener = listener
-        activityLocalSettingsToolBinding?.backListener = listener
-        setView()
+        activityLocalSettingsToolBinding?.listener = this
+        activityLocalSettingsToolBinding?.backListener = this
     }
 
-    private fun setView() {
-
+    override fun onclickFirstDownload() {
+        LogUtil.d(
+            TAG,
+            "onclickFirstDownload Status hight = ${StatusBarUtil.getStatusBarHeight(this)}"
+        )
+        LogUtil.d(TAG, "onclickFirstDownload Status dip = ${ScreenTool.getScreenDPI(this)}")
+        LogUtil.d(
+            TAG,
+            "onclickFirstDownload Status width = ${ScreenTool.getScreenWidthPixels(this)}"
+        )
+        var intent = Intent(this, DeviceSettingsActivity::class.java)
+        this.startActivity(intent)
     }
 
+    override fun onclickSysParSetting() {
+        LogUtil.d(TAG, "onclickFirstDownload")
+    }
 
-    open class LocalSettingToolListener : ILocalSettingToolListener, IBackListener {
-        override fun onclickFirstDownload() {
-            LogUtil.d(
-                TAG,
-                "onclickFirstDownload Status hight = ${StatusBarUtil.getStatusBarHeight(context)}"
-            )
-            LogUtil.d(TAG, "onclickFirstDownload Status dip = ${ScreenTool.getScreenDPI(context)}")
-            LogUtil.d(
-                TAG,
-                "onclickFirstDownload Status width = ${ScreenTool.getScreenWidthPixels(context)}"
-            )
-        }
+    override fun onclickDeviceSetting() {
+        LogUtil.d(TAG, "onclickDeviceSetting")
+    }
 
-        override fun onclickSysParSetting() {
-            LogUtil.d(TAG, "onclickFirstDownload")
-        }
-
-        override fun onclickDeviceSetting() {
-            LogUtil.d(TAG, "onclickDeviceSetting")
-        }
-
-        override fun onclickCommonlySetting() {
-            LogUtil.d(TAG, "onclickCommonlySetting")
-        }
-
-        override fun back() {
-            context.finish()
-        }
-
+    override fun onclickCommonlySetting() {
+        LogUtil.d(TAG, "onclickCommonlySetting")
     }
 }

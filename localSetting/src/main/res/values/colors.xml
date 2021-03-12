@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="title_colors">#052547</color>
+    <color name="title_bg_colors">#052547</color>//title背景颜色
+    <color name="device_connect">#ff246bfd</color>//device已经连接的颜色
+    <color name="device_unconnect">#ffd8d8d8</color>device未连接的颜色
+
+
+
+
+    <color name="white">#ffffffff</color>
 
 </resources>

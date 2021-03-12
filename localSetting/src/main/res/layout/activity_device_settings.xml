@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.ess.localsetting.IDeviceSettingsListener" />
+
+        <variable
+            name="backListener"
+            type="com.ess.localsetting.IBackListener" />
+
+        <variable
+            name="titleName"
+            type="java.lang.String" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/device_setting_bg"
+        tools:context="com.ess.localsetting.LocalSettingsToolActivity">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/activity_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:listener="@{backListener}"
+            bind:titleName="@{titleName}" />
+
+        <EditText
+            android:id="@+id/ed_input_num"
+            android:layout_width="@dimen/qb_px_202"
+            android:layout_height="@dimen/qb_px_57"
+            android:layout_marginTop="@dimen/qb_px_25"
+            android:background="@drawable/device_setting_ed_setnum_bg"
+            android:gravity="center"
+            android:hint="@string/please_input_device_num"
+            android:lines="1"
+            android:inputType="number"
+            android:textColorHint="#BFD8D8D8"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_enter"
+            android:layout_width="@dimen/qb_px_99"
+            android:layout_height="@dimen/qb_px_38"
+            android:layout_marginTop="@dimen/qb_px_19"
+            android:background="@drawable/device_setting_btn_enter_bg"
+            android:onClick="@{()->listener.enter()}"
+            android:text="@string/enter"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_input_num"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_enter2"
+            android:layout_width="@dimen/qb_px_265"
+            android:layout_height="@dimen/qb_px_56"
+            android:layout_marginBottom="@dimen/qb_px_43"
+            android:background="@drawable/device_setting_btn_enter2_bg"
+            android:onClick="@{()->listener.enter2()}"
+            android:text="@string/enter"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_device_list"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_0"
+            android:layout_marginStart="@dimen/qb_px_20"
+            android:layout_marginTop="@dimen/qb_px_38"
+            android:layout_marginEnd="@dimen/qb_px_20"
+            android:layout_marginBottom="@dimen/qb_px_38"
+            app:layout_constraintBottom_toTopOf="@+id/btn_enter2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_enter"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
