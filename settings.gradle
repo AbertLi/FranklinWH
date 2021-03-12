@@ -1,2 +1,3 @@
+include ':localSetting'
 include ':app'
 rootProject.name = "FranklinWH"
