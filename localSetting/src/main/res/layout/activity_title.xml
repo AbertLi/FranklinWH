@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="listener"
-            type="com.ess.localsetting.IBackListener" />
+            type="com.ess.localsetting.clickinterface.IBackListener" />
 
         <variable
             name="titleName"
@@ -24,23 +25,32 @@
             android:layout_height="wrap_content"
             android:text="@{titleName}"
             android:textColor="@color/white"
-            android:textSize="23sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
-            android:layout_width="@dimen/qb_px_26"
-            android:layout_height="@dimen/qb_px_26"
-            android:layout_marginLeft="@dimen/qb_px_16"
-            android:background="@mipmap/back"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/qb_px_46"
+            android:background="@color/title_bg_colors"
             android:onClick="@{()->listener.back()}"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:layout_width="@dimen/qb_px_25"
+                android:layout_height="@dimen/qb_px_25"
+                android:layout_marginLeft="@dimen/qb_px_16"
+                android:background="@mipmap/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

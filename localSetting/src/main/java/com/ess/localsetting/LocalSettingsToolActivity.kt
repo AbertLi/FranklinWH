@@ -3,13 +3,15 @@ package com.ess.localsetting
 import android.content.Intent
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import com.ess.localsetting.clickinterface.ILocalSettingToolListener
 import com.ess.localsetting.utils.LogUtil
 import com.ess.localsetting.utils.ScreenTool
 import com.ess.localsetting.utils.StatusBarUtil
 import com.example.localseting.R
 import com.example.localseting.databinding.ActivityLocalSettingsToolBinding
 
-class LocalSettingsToolActivity : BaseActivity(), ILocalSettingToolListener {
+class LocalSettingsToolActivity : BaseActivity(),
+    ILocalSettingToolListener {
     companion object {
         private var TAG = "LocalSettingsToolActivity"
     }
@@ -36,7 +38,7 @@ class LocalSettingsToolActivity : BaseActivity(), ILocalSettingToolListener {
             TAG,
             "onclickFirstDownload Status width = ${ScreenTool.getScreenWidthPixels(this)}"
         )
-        var intent = Intent(this, DeviceSettingsActivity::class.java)
+        var intent = Intent(this, DeviceInfiniteSettingsActivity::class.java)
         this.startActivity(intent)
     }
 
@@ -46,6 +48,8 @@ class LocalSettingsToolActivity : BaseActivity(), ILocalSettingToolListener {
 
     override fun onclickDeviceSetting() {
         LogUtil.d(TAG, "onclickDeviceSetting")
+        var intent = Intent(this, HomeDeviceSettingsActivity::class.java)
+        this.startActivity(intent)
     }
 
     override fun onclickCommonlySetting() {

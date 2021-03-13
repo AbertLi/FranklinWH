@@ -7,4 +7,6 @@
     <string name="enter">确定</string>
     <string name="device_no_no_matching_please_reenter">设备数量不匹配，请重新输入</string>
     <string name="reenter">重新输入</string>
+    <string name="infinite_auto_edit">INFINITE\n自动编址操作</string>
+    <string name="bind_device">绑定解绑设备</string>
 </resources>

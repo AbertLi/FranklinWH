@@ -1,13 +1,13 @@
 package com.ess.localsetting
 
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ess.localsetting.bean.DeviceInfo
+import com.ess.localsetting.clickinterface.ItemOnclickListener
 import com.example.localseting.R
 
 class DeviceListAdapter(con: Context) : RecyclerView.Adapter<DeviceListAdapter.DeviceHolder>() {

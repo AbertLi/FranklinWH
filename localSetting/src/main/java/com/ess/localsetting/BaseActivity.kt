@@ -3,9 +3,11 @@ package com.ess.localsetting
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.ess.localsetting.clickinterface.IBackListener
 import com.example.localseting.R
 
-abstract class BaseActivity : AppCompatActivity(), IBackListener {
+abstract class BaseActivity : AppCompatActivity(),
+    IBackListener {
     companion object {
         private var TAG = "BaselActivity"
     }

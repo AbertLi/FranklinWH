@@ -8,11 +8,11 @@
         <!--        <import type="com.ess.localsetting.Bean" />-->
         <variable
             name="listener"
-            type="com.ess.localsetting.ILocalSettingToolListener" />
+            type="com.ess.localsetting.clickinterface.ILocalSettingToolListener" />
 
         <variable
             name="backListener"
-            type="com.ess.localsetting.IBackListener" />
+            type="com.ess.localsetting.clickinterface.IBackListener" />
 
     </data>
 
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="@dimen/qb_px_22"
+            android:paddingTop="@dimen/qb_px_19"
             app:layout_constraintTop_toBottomOf="@+id/title"
             tools:ignore="MissingConstraints">
 
@@ -49,8 +49,8 @@
 
                 <ImageView
                     android:id="@+id/firstDownload"
-                    android:layout_width="@dimen/qb_px_40"
-                    android:layout_height="@dimen/qb_px_40"
+                    android:layout_width="@dimen/qb_px_39"
+                    android:layout_height="@dimen/qb_px_39"
                     android:src="@mipmap/local_setting_tool_firstdownload"
                     tools:ignore="OnClick" />
 
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/first_install"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -72,8 +72,8 @@
 
                 <ImageView
                     android:id="@+id/sysParSetting"
-                    android:layout_width="@dimen/qb_px_40"
-                    android:layout_height="@dimen/qb_px_40"
+                    android:layout_width="@dimen/qb_px_39"
+                    android:layout_height="@dimen/qb_px_39"
                     android:src="@mipmap/local_setting_tool_sysparsetting"
                     tools:ignore="OnClick" />
 
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/sys_par_setting"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
             </LinearLayout>
 
 
@@ -96,8 +96,8 @@
 
                 <ImageView
                     android:id="@+id/deviceSetting"
-                    android:layout_width="@dimen/qb_px_40"
-                    android:layout_height="@dimen/qb_px_40"
+                    android:layout_width="@dimen/qb_px_39"
+                    android:layout_height="@dimen/qb_px_39"
                     android:src="@mipmap/local_setting_tool_devicesetting"
                     tools:ignore="OnClick" />
 
@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/device_setting"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -119,8 +119,8 @@
 
                 <ImageView
                     android:id="@+id/commonlySetting"
-                    android:layout_width="@dimen/qb_px_40"
-                    android:layout_height="@dimen/qb_px_40"
+                    android:layout_width="@dimen/qb_px_39"
+                    android:layout_height="@dimen/qb_px_39"
                     android:src="@mipmap/local_setting_tool_commonlysetting"
                     tools:ignore="OnClick" />
 
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/commonly_setting"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
             </LinearLayout>
         </LinearLayout>
 

@@ -3,7 +3,9 @@
     package="com.example.localseting">
 
     <application>
-        <activity android:name="com.ess.localsetting.DeviceSettingsActivity"></activity>
+        <activity android:name="com.ess.localsetting.BindingOrUnbundlingActivity"></activity>
+        <activity android:name="com.ess.localsetting.HomeDeviceSettingsActivity" />
+        <activity android:name="com.ess.localsetting.DeviceInfiniteSettingsActivity" />
         <activity android:name="com.ess.localsetting.LocalSettingsToolActivity" />
     </application>
 

@@ -1,4 +1,4 @@
-package com.ess.localsetting
+package com.ess.localsetting.clickinterface
 
 interface IDeviceSettingsListener {
     fun enter()

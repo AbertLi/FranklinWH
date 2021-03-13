@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.ess.localsetting.clickinterface.IHomeDeviceSettingsListener" />
+
+        <variable
+            name="backListener"
+            type="com.ess.localsetting.clickinterface.IBackListener" />
+
+        <variable
+            name="titleName"
+            type="java.lang.String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/local_setting_act_bg">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/activity_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:listener="@{backListener}"
+            bind:titleName="@{titleName}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qb_px_26"
+            app:layout_constraintTop_toBottomOf="@+id/title">
+
+            <Button
+                android:id="@+id/btn_infinite_auto_edit"
+                android:layout_width="@dimen/qb_px_159"
+                android:layout_height="@dimen/qb_px_70"
+                android:layout_marginStart="@dimen/qb_px_15"
+                android:background="@drawable/device_recycler_bg"
+                android:onClick="@{()->listener.infiniteAutoEdit()}"
+                android:text="@string/infinite_auto_edit"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/btn_binding_device"
+                android:layout_width="@dimen/qb_px_159"
+                android:layout_height="@dimen/qb_px_70"
+                android:layout_marginEnd="@dimen/qb_px_15"
+                android:background="@drawable/device_recycler_bg"
+                android:onClick="@{()->listener.bindDevice()}"
+                android:text="@string/bind_device"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,26 +1,26 @@
 package com.ess.localsetting
 
-import android.annotation.SuppressLint
-import android.widget.Adapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ess.localsetting.bean.DeviceInfo
+import com.ess.localsetting.clickinterface.IDeviceSettingsListener
+import com.ess.localsetting.clickinterface.ItemOnclickListener
 import com.ess.localsetting.utils.LogUtil
 import com.example.localseting.R
-import com.example.localseting.databinding.ActivityDeviceSettingsBinding
+import com.example.localseting.databinding.ActivityDeviceInfiniteSettingsBinding
 
-class DeviceSettingsActivity : BaseActivity(), IDeviceSettingsListener {
+class DeviceInfiniteSettingsActivity : BaseActivity(),
+    IDeviceSettingsListener {
     companion object {
         private const val TAG = "DeviceSettingsActivity"
     }
 
-    private lateinit var binding: ActivityDeviceSettingsBinding
+    private lateinit var binding: ActivityDeviceInfiniteSettingsBinding
     lateinit var adapter:DeviceListAdapter
 
-    @SuppressLint("ResourceType")
     override fun onCreateView() {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_device_settings)
-        binding?.titleName = this.getString(R.string.device_setting)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_device_infinite_settings)
+        binding.titleName = this.getString(R.string.device_setting)
         binding.backListener = this
         adapter = DeviceListAdapter(this)
         adapter.mClickListener = DeviceItemOnclickListener()
