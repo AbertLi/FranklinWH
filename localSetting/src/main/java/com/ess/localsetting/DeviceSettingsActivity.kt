@@ -45,6 +45,10 @@ class DeviceSettingsActivity : BaseActivity(), IDeviceSettingsListener {
 
     }
 
+    override fun reenter(){
+        LogUtil.d(TAG,"reenter")
+    }
+
     fun getData(num: Int): ArrayList<DeviceInfo> {
         var list = ArrayList<DeviceInfo>()
         for (i in 1..num) {

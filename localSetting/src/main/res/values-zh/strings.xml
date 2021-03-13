@@ -6,4 +6,6 @@
     <string name="commonly_setting">用户常用设置</string>
     <string name="please_input_device_num">请输入设备数量</string>
     <string name="enter">确定</string>
+    <string name="device_no_no_matching_please_reenter">设备数量不匹配，请重新输入</string>
+    <string name="reenter">重新输入</string>
 </resources>

@@ -44,8 +44,8 @@
             android:background="@drawable/device_setting_ed_setnum_bg"
             android:gravity="center"
             android:hint="@string/please_input_device_num"
-            android:lines="1"
             android:inputType="number"
+            android:lines="1"
             android:textColorHint="#BFD8D8D8"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -91,9 +91,57 @@
             android:layout_marginTop="@dimen/qb_px_38"
             android:layout_marginEnd="@dimen/qb_px_20"
             android:layout_marginBottom="@dimen/qb_px_38"
+            android:background="@drawable/device_recycler_bg"
             app:layout_constraintBottom_toTopOf="@+id/btn_enter2"
             app:layout_constraintTop_toBottomOf="@+id/btn_enter"
             tools:ignore="MissingConstraints" />
+        <!--    输入的设备数量和真实设备数量不对应的布局    -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_device_no_matching_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#40FFFFFF"
+            android:visibility="gone">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_device_no_matching"
+                android:layout_width="@dimen/qb_px_0"
+                android:layout_height="@dimen/qb_px_266"
+                android:layout_marginStart="@dimen/qb_px_36"
+                android:layout_marginTop="@dimen/qb_px_256"
+                android:layout_marginEnd="@dimen/qb_px_36"
+                android:background="@drawable/device_recycler_bg"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/tv_device_no_matching"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_no_no_matching_please_reenter"
+                    android:textColor="@color/white"
+                    android:textSize="23sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_reenter"
+                    android:layout_width="@dimen/qb_px_198"
+                    android:layout_height="@dimen/qb_px_41"
+                    android:layout_marginBottom="@dimen/qb_px_22"
+                    android:background="@drawable/device_no_matching_btn_bg"
+                    android:onClick="@{()->listener.reenter()}"
+                    android:text="@string/reenter"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/qb_px_20"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

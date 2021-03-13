@@ -1,13 +1,11 @@
 package com.ess.localsetting
 
-import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ess.localsetting.bean.DeviceInfo
 import com.example.localseting.R
@@ -28,7 +26,7 @@ class DeviceListAdapter(con: Context) : RecyclerView.Adapter<DeviceListAdapter.D
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeviceHolder {
-        var view = LayoutInflater.from(context).inflate(R.layout.device_setting_item,null)
+        var view = View.inflate(context, R.layout.device_setting_item, null)
         return DeviceHolder(view)
     }
 
