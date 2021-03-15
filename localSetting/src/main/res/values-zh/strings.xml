@@ -9,5 +9,15 @@
     <string name="device_no_no_matching_please_reenter">设备数量不匹配，请重新输入</string>
     <string name="reenter">重新输入</string>
     <string name="infinite_auto_edit">INFINITE\n自动编址操作</string>
-    <string name="bind_device">绑定解绑设备</string>
+    <string name="bind_orunbind_device">绑定解绑设备</string>
+    <string name="bind_device">绑定设备</string>
+    <string name="unbind_device">解绑设备</string>
+    <string name="related_account">关联账户</string>
+    <string name="please_input_related_account">请输入关联账户</string>
+    <string name="distributor">分销商</string>
+    <string name="please_input_distributor">请输入分销商</string>
+    <string name="installers">安装商</string>
+    <string name="please_input_installers">请输入安装商</string>
+    <string name="operator">运维商</string>
+    <string name="please_input_operator">请输入运维商</string>
 </resources>

@@ -12,6 +12,12 @@
         <variable
             name="titleName"
             type="java.lang.String" />
+
+        <variable
+            name="addListener"
+            type="com.ess.localsetting.clickinterface.IAddListener" />
+
+        <import type="android.view.View"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,6 +54,26 @@
                 android:background="@mipmap/back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/qb_px_46"
+            android:background="@color/title_bg_colors"
+            android:onClick="@{()->addListener.add()}"
+            android:visibility="@{addListener!=null?View.VISIBLE:View.GONE}"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:layout_width="@dimen/qb_px_25"
+                android:layout_height="@dimen/qb_px_25"
+                android:layout_marginEnd="@dimen/qb_px_16"
+                android:background="@mipmap/device_setting_add_account"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>

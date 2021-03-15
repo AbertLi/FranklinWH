@@ -15,7 +15,15 @@
             type="com.ess.localsetting.clickinterface.IBackListener" />
 
         <variable
+            name="addListener"
+            type="com.ess.localsetting.clickinterface.IAddListener" />
+
+        <variable
             name="titleName"
+            type="java.lang.String" />
+
+        <variable
+            name="date"
             type="java.lang.String" />
 
     </data>
@@ -32,50 +40,248 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             bind:listener="@{backListener}"
+            bind:addListener="@{addListener}"
             bind:titleName="@{titleName}" />
 
-        <LinearLayout
-            android:id="@+id/ll_ed_list"
+        <ScrollView
+            android:id="@+id/sv_ed_list"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_520"
+            android:layout_height="0dp"
             android:layout_marginStart="@dimen/qb_px_15"
             android:layout_marginTop="@dimen/qb_px_19"
             android:layout_marginEnd="@dimen/qb_px_15"
+            android:layout_marginBottom="@dimen/qb_px_84"
             android:background="@drawable/device_recycler_bg"
-            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/binding_device"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title">
 
-            <TextView
-                android:id="@+id/tv_titleName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/qb_px_19"
-                android:layout_marginTop="@dimen/qb_px_19"
-                android:layout_marginEnd="@dimen/qb_px_19"
-                android:text="@string/bind_device"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
-
             <LinearLayout
-                android:id="@+id/ll_time"
-                android:layout_marginStart="@dimen/qb_px_19"
-                android:layout_marginTop="@dimen/qb_px_16"
-                android:layout_marginEnd="@dimen/qb_px_19"
-                android:gravity="center_vertical"
+                android:id="@+id/ll_ed_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <View
-                android:layout_marginTop="@dimen/qb_px_15"
-                android:id="@+id/view_line1"
-                android:background="#17FFFFFF"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"/>
+                <TextView
+                    android:id="@+id/tv_titleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_19"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:text="@string/bind_orunbind_device"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
 
-        </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_16"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_calendar"
+                        android:layout_width="@dimen/qb_px_23"
+                        android:layout_height="@dimen/qb_px_23"
+                        android:src="@mipmap/device_setting_calendar" />
+
+                    <TextView
+                        android:id="@+id/tv_calendar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/qb_px_17"
+                        android:text="@{date}"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view_line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_1"
+                    android:layout_marginTop="@dimen/qb_px_15"
+                    android:background="#17FFFFFF" />
+
+                <TextView
+                    android:id="@+id/tv_related_account"
+                    android:layout_width="62dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_14"
+                    android:text="@string/related_account"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/ed_related_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_29"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_19"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="@drawable/device_setting_ed_bindorunbund_bg"
+                    android:hint="@string/please_input_related_account"
+                    android:lines="1"
+                    android:paddingStart="@dimen/qb_px_11"
+                    android:textColor="@color/white"
+                    android:textColorHint="#40FFFFFF"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    tools:ignore="MissingConstraints" />
+
+                <View
+                    android:id="@+id/view__related_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_1"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_12"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="#17FFFFFF"
+                    android:visibility="gone" />
+
+
+                <TextView
+                    android:id="@+id/tv_distributor"
+                    android:layout_width="62dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_14"
+                    android:text="@string/distributor"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/ed_distributor"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_29"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_19"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="@drawable/device_setting_ed_bindorunbund_bg"
+                    android:hint="@string/please_input_distributor"
+                    android:lines="1"
+                    android:paddingStart="@dimen/qb_px_11"
+                    android:textColor="@color/white"
+                    android:textColorHint="#40FFFFFF"
+                    android:textSize="13sp"
+                    tools:ignore="MissingConstraints" />
+
+                <View
+                    android:id="@+id/view_distributor"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_1"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_12"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="#17FFFFFF" />
+
+
+                <TextView
+                    android:id="@+id/tv_installers"
+                    android:layout_width="62dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_14"
+                    android:text="@string/installers"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/ed_installers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_29"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_19"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="@drawable/device_setting_ed_bindorunbund_bg"
+                    android:hint="@string/please_input_installers"
+                    android:lines="1"
+                    android:paddingStart="@dimen/qb_px_11"
+                    android:textColor="@color/white"
+                    android:textColorHint="#40FFFFFF"
+                    android:textSize="13sp"
+                    tools:ignore="MissingConstraints" />
+
+                <View
+                    android:id="@+id/view_installers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_1"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_12"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="#17FFFFFF" />
+
+                <TextView
+                    android:id="@+id/tv_operator"
+                    android:layout_width="62dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_14"
+                    android:text="@string/operator"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/ed_operator"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_29"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_19"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="@drawable/device_setting_ed_bindorunbund_bg"
+                    android:hint="@string/please_input_operator"
+                    android:lines="1"
+                    android:paddingStart="@dimen/qb_px_11"
+                    android:textColor="@color/white"
+                    android:textColorHint="#40FFFFFF"
+                    android:textSize="13sp"
+                    tools:ignore="MissingConstraints" />
+
+                <View
+                    android:id="@+id/view_operator"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_1"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_12"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="#17FFFFFF" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/unbinding_device"
+            android:layout_width="@dimen/qb_px_160"
+            android:layout_height="@dimen/qb_px_43"
+            android:layout_marginStart="@dimen/qb_px_15"
+            android:layout_marginBottom="@dimen/qb_px_32"
+            android:background="@drawable/device_setting_btn_enter2_unable_press_bg"
+            android:text="@string/unbind_device"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/binding_device"
+            android:layout_width="@dimen/qb_px_160"
+            android:layout_height="@dimen/qb_px_43"
+            android:layout_marginEnd="@dimen/qb_px_15"
+            android:layout_marginBottom="@dimen/qb_px_32"
+            android:background="@drawable/device_setting_btn_enter2_able_press_bg"
+            android:text="@string/bind_device"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

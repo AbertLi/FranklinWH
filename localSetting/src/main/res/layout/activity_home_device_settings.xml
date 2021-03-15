@@ -61,7 +61,7 @@
                 android:layout_marginEnd="@dimen/qb_px_15"
                 android:background="@drawable/device_recycler_bg"
                 android:onClick="@{()->listener.bindDevice()}"
-                android:text="@string/bind_device"
+                android:text="@string/bind_orunbind_device"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:layout_constraintRight_toRightOf="parent"

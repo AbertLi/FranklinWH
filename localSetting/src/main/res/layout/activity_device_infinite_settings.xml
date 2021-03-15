@@ -72,7 +72,7 @@
             android:layout_width="@dimen/qb_px_199"
             android:layout_height="@dimen/qb_px_42"
             android:layout_marginBottom="@dimen/qb_px_33"
-            android:background="@drawable/device_setting_btn_enter2_bg"
+            android:background="@drawable/device_setting_btn_enter2_able_press_bg"
             android:onClick="@{()->listener.enter2()}"
             android:text="@string/enter"
             android:textColor="@color/white"
