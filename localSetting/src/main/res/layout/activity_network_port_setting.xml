@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- 这个布局暂时没有用到。 -->
+    <data>
+
+        <variable
+            name="backListener"
+            type="com.ess.localsetting.clickinterface.IBackListener" />
+
+        <variable
+            name="enterListener"
+            type="com.ess.localsetting.clickinterface.IEnterListener" />
+
+        <variable
+            name="addListener"
+            type="com.ess.localsetting.clickinterface.IAddListener" />
+
+        <variable
+            name="titleName"
+            type="java.lang.String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/device_setting_bg">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/activity_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:addListener="@{addListener}"
+            bind:listener="@{backListener}"
+            bind:titleName="@{titleName}" />
+
+        <Button
+            android:id="@+id/btn_enter"
+            android:layout_width="@dimen/qb_px_201"
+            android:layout_height="@dimen/qb_px_42"
+            android:layout_marginBottom="@dimen/qb_px_33"
+            android:background="@drawable/device_setting_btn_enter2_able_press_bg"
+            android:onClick="@{()->enterListener.enter()}"
+            android:text="@string/enter"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_network_port"
+            android:layout_width="@dimen/qb_px_0"
+            android:layout_height="@dimen/qb_px_0"
+            android:layout_marginBottom="@dimen/qb_px_22"
+            android:layout_marginTop="@dimen/qb_px_10"
+            app:layout_constraintBottom_toTopOf="@id/btn_enter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

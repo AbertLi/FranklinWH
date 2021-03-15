@@ -1,7 +1,6 @@
 package com.ess.localsetting.clickinterface
 
-interface IDeviceSettingsListener {
-    fun enter()
+interface IDeviceSettingsListener : IEnterListener {
     fun enter2()
     fun reenter()
 }

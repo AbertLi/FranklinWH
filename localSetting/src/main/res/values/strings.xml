@@ -25,11 +25,20 @@
     <string name="map_pos">地图获取</string>
     <string name="manual_input">手动输入</string>
     <string name="net_setting">网络设置</string>
-
     <string name="network_port1">网口1</string>
     <string name="network_port2">网口2</string>
     <string name="wifi">WIFI</string>
     <string name="fourg">4G</string>
+    <string name="network_port_par_setting">网口参数设置</string>
+    <string name="input_value">输入值</string>
+
+    <!--网口参数-->
+    <string name="gateway_ip">网关IP</string>
+    <string name="subnet_mask_ip">子网掩码IP</string>
+    <string name="gateway">网关</string>
+    <string name="iccid_code">ICCID码</string>
+    <string name="imsi_code">IMSI码</string>
+
 
 
 </resources>

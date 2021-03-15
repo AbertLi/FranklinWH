@@ -1,6 +1,7 @@
 package com.ess.localsetting
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ class UserCommonSettingsActivity2 : BaseActivity() {
     lateinit var dataBinding: ActivityUserCommonSettings2Binding
     override fun onCreateView() {
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_user_common_settings2)
+        dataBinding.titleName = getString(R.string.commonly_setting)
         dataBinding.backListener = this
         dataBinding.listener = listener
     }
@@ -69,9 +71,12 @@ class UserCommonSettingsActivity2 : BaseActivity() {
             LogUtil.d(TAG, itemBean?.name ?: "NULL")
             when (itemBean?.position) {
                 0 -> {
+                    var intent = Intent(this@UserCommonSettingsActivity2, NetworkPortSettingActivity::class.java)
+                    startActivity(intent)
                 }
                 1 -> {
-
+                    var intent = Intent(this@UserCommonSettingsActivity2, NetworkPortSettingActivity::class.java)
+                    startActivity(intent)
                 }
                 2 -> {
 
