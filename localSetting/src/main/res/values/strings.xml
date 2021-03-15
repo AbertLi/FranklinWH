@@ -21,4 +21,15 @@
     <string name="please_input_operator">请输入运维商</string>
     <string name="local_res_policy">本地资源政策</string>
     <string name="par_adress">2030资源地址</string>
+    <string name="auto_pos">自动定位</string>
+    <string name="map_pos">地图获取</string>
+    <string name="manual_input">手动输入</string>
+    <string name="net_setting">网络设置</string>
+
+    <string name="network_port1">网口1</string>
+    <string name="network_port2">网口2</string>
+    <string name="wifi">WIFI</string>
+    <string name="fourg">4G</string>
+
+
 </resources>

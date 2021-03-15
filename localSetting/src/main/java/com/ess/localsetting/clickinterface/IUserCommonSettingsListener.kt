@@ -5,4 +5,8 @@ package com.ess.localsetting.clickinterface
  */
 interface IUserCommonSettingsListener {
     fun userCommentSettingClick()
+    fun autoPosClick()
+    fun mapPosClick()
+    fun manualInputClick()
+    fun netSettingsClick()
 }

@@ -8,5 +8,7 @@
 
 
     <color name="white">#ffffffff</color>
+    <color name="net_state_pressed">#ff457ccb</color>
+    <color name="net_state_unpressed">#00000000</color>
 
 </resources>
