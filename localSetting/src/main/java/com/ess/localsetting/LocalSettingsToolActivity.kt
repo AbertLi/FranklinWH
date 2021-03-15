@@ -56,7 +56,7 @@ class LocalSettingsToolActivity : BaseActivity(),
 
     override fun onclickCommonlySetting() {
         LogUtil.d(TAG, "onclickCommonlySetting")
-//        var intent = Intent(this, UserCommonSettingsActivity::class.java)
-//        this.startActivity(intent)
+        var intent = Intent(this, UserCommonSettingsActivity::class.java)
+        this.startActivity(intent)
     }
 }

@@ -24,7 +24,7 @@ class SystemParSettingActivity : BaseActivity() {
         override fun resAdressPolicyClick() {
         }
 
-        override fun SysParSettingClick() {
+        override fun sysParSettingClick() {
         }
 
     }

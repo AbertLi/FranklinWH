@@ -6,5 +6,5 @@ package com.ess.localsetting.clickinterface
 interface ISysParSetingListener {
     fun localResPolicyClick()
     fun resAdressPolicyClick()
-    fun SysParSettingClick()
+    fun sysParSettingClick()
 }
