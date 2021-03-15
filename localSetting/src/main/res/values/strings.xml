@@ -19,4 +19,6 @@
     <string name="please_input_installers">请输入安装商</string>
     <string name="operator">运维商</string>
     <string name="please_input_operator">请输入运维商</string>
+    <string name="local_res_policy">本地资源政策</string>
+    <string name="par_adress">2030资源地址</string>
 </resources>

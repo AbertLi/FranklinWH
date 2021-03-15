@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="backListener"
+            type="com.ess.localsetting.clickinterface.IBackListener" />
+
+        <variable
+            name="listener"
+            type="com.ess.localsetting.clickinterface.ISysParSetingListener" />
+
+        <variable
+            name="titleName"
+            type="java.lang.String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/device_setting_bg">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/activity_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:listener="@{backListener}"
+            bind:titleName="@{titleName}" />
+
+        <LinearLayout
+            android:id="@+id/ll_local_res_policy"
+            android:layout_width="@dimen/qb_px_0"
+            android:layout_height="@dimen/qb_px_110"
+            android:layout_marginStart="@dimen/qb_px_15"
+            android:layout_marginTop="@dimen/qb_px_19"
+            android:layout_marginEnd="@dimen/qb_px_15"
+            android:background="@drawable/device_recycler_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/tv_local_res_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qb_px_19"
+                android:layout_weight="1"
+                android:text="@string/local_res_policy"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/iv_local_res_policy"
+                android:layout_width="@dimen/qb_px_22"
+                android:layout_height="@dimen/qb_px_22"
+                android:layout_marginEnd="@dimen/qb_px_21"
+                android:src="@mipmap/sys_par_setting_list_flag" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_2030_res_address"
+            android:layout_width="@dimen/qb_px_0"
+            android:layout_height="@dimen/qb_px_110"
+            android:layout_marginStart="@dimen/qb_px_15"
+            android:layout_marginTop="@dimen/qb_px_19"
+            android:layout_marginEnd="@dimen/qb_px_15"
+            android:background="@drawable/device_recycler_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_local_res_policy"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/tv_2030_res_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qb_px_19"
+                android:layout_weight="1"
+                android:text="@string/par_adress"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/iv_2030_res_address"
+                android:layout_width="@dimen/qb_px_22"
+                android:layout_height="@dimen/qb_px_22"
+                android:layout_marginEnd="@dimen/qb_px_21"
+                android:src="@mipmap/sys_par_setting_list_flag" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_sys_par_setting"
+            android:layout_width="@dimen/qb_px_0"
+            android:layout_height="@dimen/qb_px_110"
+            android:layout_marginStart="@dimen/qb_px_15"
+            android:layout_marginTop="@dimen/qb_px_19"
+            android:layout_marginEnd="@dimen/qb_px_15"
+            android:background="@drawable/device_recycler_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_2030_res_address"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/tv_sys_par_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qb_px_19"
+                android:layout_weight="1"
+                android:text="@string/sys_par_setting"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/iv_sys_par_setting"
+                android:layout_width="@dimen/qb_px_22"
+                android:layout_height="@dimen/qb_px_22"
+                android:layout_marginEnd="@dimen/qb_px_21"
+                android:src="@mipmap/sys_par_setting_list_flag" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -44,6 +44,8 @@ class LocalSettingsToolActivity : BaseActivity(),
 
     override fun onclickSysParSetting() {
         LogUtil.d(TAG, "onclickFirstDownload")
+        var intent = Intent(this, SystemParSettingActivity::class.java)
+        this.startActivity(intent)
     }
 
     override fun onclickDeviceSetting() {
@@ -54,5 +56,7 @@ class LocalSettingsToolActivity : BaseActivity(),
 
     override fun onclickCommonlySetting() {
         LogUtil.d(TAG, "onclickCommonlySetting")
+//        var intent = Intent(this, UserCommonSettingsActivity::class.java)
+//        this.startActivity(intent)
     }
 }
