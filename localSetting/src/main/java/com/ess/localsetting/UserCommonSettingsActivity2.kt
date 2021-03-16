@@ -79,10 +79,12 @@ class UserCommonSettingsActivity2 : BaseActivity() {
                     startActivity(intent)
                 }
                 2 -> {
-
+                    var intent = Intent(this@UserCommonSettingsActivity2, WifiSettingsActivity::class.java)
+                    startActivity(intent)
                 }
                 3 -> {
-
+//                    var intent = Intent(this@UserCommonSettingsActivity2, FourGenerationSettingsActivity::class.java)
+//                    startActivity(intent)
                 }
             }
         }

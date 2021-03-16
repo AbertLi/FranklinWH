@@ -40,5 +40,7 @@
     <string name="imsi_code">IMSI码</string>
 
 
+    <string name="connect_suc">成功连接</string>
+    <string name="connected">已连接</string>
 
 </resources>

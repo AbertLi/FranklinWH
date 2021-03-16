@@ -3,7 +3,8 @@
     package="com.example.localseting">
 
     <application>
-        <activity android:name="com.ess.localsetting.NetworkPortSettingActivity"></activity>
+        <activity android:name="com.ess.localsetting.WifiSettingsActivity"></activity>
+        <activity android:name="com.ess.localsetting.NetworkPortSettingActivity" />
         <activity android:name="com.ess.localsetting.UserCommonSettingsActivity2" /> <!-- <activity android:name="com.ess.localsetting.UserCommonSettingsActivity" /> -->
         <activity android:name="com.ess.localsetting.SystemParSettingActivity" />
         <activity android:name="com.ess.localsetting.BindingOrUnbundlingActivity" />

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="wifiInfo"
+            type="com.ess.localsetting.bean.WifiInfo" />
+
+        <import type="com.ess.localsetting.bean.WifiInfo" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_rootView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_51">
+
+        <View
+            android:id="@+id/v_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_2"
+            android:layout_marginStart="@dimen/qb_px_19"
+            android:layout_marginEnd="@dimen/qb_px_19"
+            android:background="#17FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_0"
+            android:layout_marginTop="@dimen/qb_px_8"
+            app:layout_constraintBottom_toTopOf="@+id/v_line"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_wifi"
+                android:layout_width="@dimen/qb_px_19"
+                android:layout_height="@dimen/qb_px_19"
+                android:layout_marginStart="@dimen/qb_px_19"
+                android:background="@mipmap/wifi_settings_wifi_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tv_wifi_connected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qb_px_10"
+                android:layout_marginEnd="@dimen/qb_px_16"
+                android:layout_marginRight="@dimen/qb_px_19"
+                android:text="@string/connected"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:visibility="@{wifiInfo.connectStatus==WifiInfo.CONNECT?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/iv_wifi_ok"
+                android:layout_width="@dimen/qb_px_12"
+                android:layout_height="@dimen/qb_px_12"
+                android:layout_marginRight="@dimen/qb_px_8"
+                android:background="@mipmap/wifi_settings_wifi_ok"
+                android:visibility="@{wifiInfo.connectStatus==WifiInfo.CONNECT?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_wifi_connected"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tv_wifi_name"
+                android:layout_width="@dimen/qb_px_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qb_px_10"
+                android:layout_marginEnd="@dimen/qb_px_16"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{wifiInfo.name}"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/iv_wifi"
+                app:layout_constraintRight_toLeftOf="@+id/iv_wifi_ok"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
@@ -89,7 +90,9 @@ class NetworkPortSettingActivity : BaseActivity() {
         }
 
         override fun onBindViewHolder(holder: PortParSettingsHolder, position: Int) {
-            holder.netName.text = nets?.get(position)?.name
+            var itemData = nets?.get(position)
+            holder.netName.text = itemData?.name
+            holder.ivIcon.setImageResource(itemData?.icon ?: R.mipmap.network_port_par)
             holder.rootView.setOnClickListener {
                 mClickListener?.onClick(nets?.get(position))
             }
@@ -126,6 +129,7 @@ class NetworkPortSettingActivity : BaseActivity() {
         var rootView = itemView.findViewById<LinearLayout>(R.id.rootView)
         var netName = itemView.findViewById<TextView>(R.id.tv_item_name)
         var edInputValue = itemView.findViewById<EditText>(R.id.ed_input_num)
+        var ivIcon = itemView.findViewById<ImageView>(R.id.iv_icon)
     }
 
     class NetworkPortParSettingItemDecoration(
