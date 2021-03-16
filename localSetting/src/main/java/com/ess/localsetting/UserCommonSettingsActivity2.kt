@@ -71,20 +71,30 @@ class UserCommonSettingsActivity2 : BaseActivity() {
             LogUtil.d(TAG, itemBean?.name ?: "NULL")
             when (itemBean?.position) {
                 0 -> {
-                    var intent = Intent(this@UserCommonSettingsActivity2, NetworkPortSettingActivity::class.java)
+                    var intent = Intent(
+                        this@UserCommonSettingsActivity2,
+                        NetworkPortSettingActivity::class.java
+                    )
                     startActivity(intent)
                 }
                 1 -> {
-                    var intent = Intent(this@UserCommonSettingsActivity2, NetworkPortSettingActivity::class.java)
+                    var intent = Intent(
+                        this@UserCommonSettingsActivity2,
+                        NetworkPortSettingActivity::class.java
+                    )
                     startActivity(intent)
                 }
                 2 -> {
-                    var intent = Intent(this@UserCommonSettingsActivity2, WifiSettingsActivity::class.java)
+                    var intent =
+                        Intent(this@UserCommonSettingsActivity2, WifiSettingsActivity::class.java)
                     startActivity(intent)
                 }
                 3 -> {
-//                    var intent = Intent(this@UserCommonSettingsActivity2, FourGenerationSettingsActivity::class.java)
-//                    startActivity(intent)
+                    var intent = Intent(
+                        this@UserCommonSettingsActivity2,
+                        FourGenerationSettingsActivity::class.java
+                    )
+                    startActivity(intent)
                 }
             }
         }

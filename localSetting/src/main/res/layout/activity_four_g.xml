@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="backListener"
+            type="com.ess.localsetting.clickinterface.IBackListener" />
+
+        <variable
+            name="enterListener"
+            type="com.ess.localsetting.clickinterface.IEnterListener" />
+
+        <variable
+            name="titleName"
+            type="java.lang.String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/device_setting_bg">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/activity_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:listener="@{backListener}"
+            bind:titleName="@{titleName}" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ll_local_res_policy"
+            android:layout_width="@dimen/qb_px_0"
+            android:layout_height="@dimen/qb_px_106"
+            android:layout_marginStart="@dimen/qb_px_15"
+            android:layout_marginTop="@dimen/qb_px_19"
+            android:layout_marginEnd="@dimen/qb_px_15"
+            android:orientation="horizontal"
+            app:cardBackgroundColor="#ff1f4b8f"
+            app:cardCornerRadius="@dimen/qb_px_10"
+            app:cardElevation="@dimen/qb_px_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_mac_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_19"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:text="@string/mac_address"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/ed_input_mac"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_29"
+                    android:layout_marginStart="@dimen/qb_px_19"
+                    android:layout_marginTop="@dimen/qb_px_20"
+                    android:layout_marginEnd="@dimen/qb_px_19"
+                    android:background="@drawable/fourg_setting_ed_bg"
+                    android:hint="@string/input_value"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/qb_px_10"
+                    android:textColor="@color/white"
+                    android:textColorHint="#40FFFFFF"
+                    android:textSize="@dimen/qb_px_13" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_enter"
+            android:layout_width="@dimen/qb_px_201"
+            android:layout_height="@dimen/qb_px_42"
+            android:layout_marginTop="@dimen/qb_px_29"
+            android:layout_marginBottom="@dimen/qb_px_33"
+            android:background="@drawable/device_setting_btn_enter2_able_press_bg"
+            android:onClick="@{()->enterListener.enter()}"
+            android:text="@string/enter"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_local_res_policy"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
