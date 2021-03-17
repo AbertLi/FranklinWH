@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ess.localsetting.clickinterface.IUserCommonSettingsListener
 import com.ess.localsetting.clickinterface.ItemOnclickListener
+import com.ess.localsetting.utils.LongitudeLatitudeUtil
+import com.ess.localsetting.utils.LocationUtils
 import com.ess.localsetting.utils.LogUtil
 import com.example.localseting.R
 import com.example.localseting.databinding.ActivityUserCommonSettings2Binding
@@ -35,11 +37,12 @@ class UserCommonSettingsActivity2 : BaseActivity() {
         }
 
         override fun autoPosClick() {
+            var location = LocationUtils.getInstance(this@UserCommonSettingsActivity2).showLocation()
 
         }
 
         override fun mapPosClick() {
-
+            LogUtil.d(TAG,LongitudeLatitudeUtil.DDD2DMS(113.909269))
         }
 
         override fun manualInputClick() {
@@ -63,6 +66,10 @@ class UserCommonSettingsActivity2 : BaseActivity() {
                 dataBinding.rvNetSetting.adapter = adapter
                 adapter.setClickListeners(onclickListener)
             }
+        }
+
+        override fun enter() {
+
         }
     }
 
