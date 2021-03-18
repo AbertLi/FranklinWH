@@ -7,10 +7,10 @@ class LongitudeLatitudeUtil {
          */
         @JvmStatic
         fun DDD2DMS(d: Double): String {
-            val array = d.toString().split("[.]").toTypedArray()
+            val array = d.toString().split(".").toTypedArray()
             val degrees = array[0] //得到度
             val m = ("0." + array[1]).toDouble() * 60
-            val array1 = m.toString().split("[.]").toTypedArray()
+            val array1 = m.toString().split(".").toTypedArray()
             val minutes = array1[0] //得到分
             val s = ("0." + array1[1]).toDouble() * 60
             val seconds = s.toString() //得到秒
@@ -23,10 +23,10 @@ class LongitudeLatitudeUtil {
          */
         @JvmStatic
         fun DDD2DMSROUNDING(d: Double): String {
-            val array = d.toString().split("[.]").toTypedArray()
+            val array = d.toString().split(".").toTypedArray()
             val degrees = array[0] //得到度
             val m = ("0." + array[1]).toDouble() * 60
-            val array1 = m.toString().split("[.]").toTypedArray()
+            val array1 = m.toString().split(".").toTypedArray()
             val minutes = array1[0] //得到分
             val s = ("0." + array1[1]).toDouble() * 60
             val seconds = s.toInt().toString() //得到秒

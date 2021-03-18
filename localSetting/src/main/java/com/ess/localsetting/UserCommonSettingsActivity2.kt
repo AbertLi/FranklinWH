@@ -1,5 +1,7 @@
 package com.ess.localsetting
 
+//import android.app.Fragment
+//import android.app.FragmentTransaction
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,13 +11,15 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ess.localsetting.clickinterface.IUserCommonSettingsListener
 import com.ess.localsetting.clickinterface.ItemOnclickListener
-import com.ess.localsetting.utils.LongitudeLatitudeUtil
 import com.ess.localsetting.utils.LocationUtils
 import com.ess.localsetting.utils.LogUtil
+import com.ess.localsetting.utils.LongitudeLatitudeUtil
 import com.example.localseting.R
 import com.example.localseting.databinding.ActivityUserCommonSettings2Binding
 
@@ -28,6 +32,8 @@ class UserCommonSettingsActivity2 : BaseActivity() {
         dataBinding.titleName = getString(R.string.commonly_setting)
         dataBinding.backListener = this
         dataBinding.listener = listener
+        dataBinding.tvLongitudeValue.text = "00°00'00\""
+        dataBinding.tvLatitudeValue.text = "00°00'00\""
     }
 
 
@@ -38,7 +44,8 @@ class UserCommonSettingsActivity2 : BaseActivity() {
 
         override fun autoPosClick() {
             var location = LocationUtils.getInstance(this@UserCommonSettingsActivity2).showLocation()
-
+            dataBinding.tvLongitudeValue.text = LongitudeLatitudeUtil.DDD2DMSROUNDING(location.longitude)
+            dataBinding.tvLatitudeValue.text = LongitudeLatitudeUtil.DDD2DMSROUNDING(location.latitude)
         }
 
         override fun mapPosClick() {
@@ -46,7 +53,20 @@ class UserCommonSettingsActivity2 : BaseActivity() {
         }
 
         override fun manualInputClick() {
+            showDialog()
+        }
 
+        fun showDialog() {
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            val prev: Fragment? = supportFragmentManager.findFragmentByTag("dialog")
+            if (prev != null) {
+                ft.remove(prev)
+            }
+            ft.addToBackStack(null)
+
+            // Create and show the dialog.
+            val newFragment = InputLocationBottomDialog()
+            newFragment.show(ft, "dialog")
         }
 
         override fun netSettingsClick() {
